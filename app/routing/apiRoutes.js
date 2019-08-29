@@ -5,32 +5,25 @@ module.exports=function(app){
     
     })
     app.post("/api/friends",function(req,res){
-         newFriend=req.body;
-         for (i=0;i<newFriend.scores.length;i++){
-           newFriend.scores[i]=parseInt(newFriend.scores[i]);
+         let friend=req.body;
+         let bestScores = 50;
+         let matchIndex=0;
+
+         for (i=0; i < friend.scores.length; i++){
+           friend.scores[i]=parseInt(friend.scores[i]);
      }
-         
-         
-       bestMatch=100;
-       matchIndex=0;
-       
-         for (i=0;i<friends.length;i++){
-            matchScore=0;
-            for (j=0;j<friends[i].scores.length;j++){
-                matchScore+=Math.abs(newFriend.scores[j]-friends[i].scores[j])
+       console.log(`friend${friend}`) 
+         for (i=0; i < friends.length; i++){
+              matchScore=0;
+            for (j=0;j < friends[i].scores.length; j++){
+                matchScore+=Math.abs(friend.scores[j]-friends[i].scores[j])
             }
-            if(matchScore<bestMatch){
-                matchIndex=i;
-                bestMatch=matchScore;
-    
+            if(matchScore < bestScores){
+                matchIndex = i;
+                bestScores = matchScore;
             }
          }
-         friends.push(newFriend);
-         
-    
+         friends.push(friend);
          res.json(friends[matchIndex]);
-       
     })
-    
-    
     }
