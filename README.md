@@ -4,7 +4,7 @@
 
 **Friend Finder** application taking results from users' surveys, then compare their answers with those from other users. And then display the name and picture of the user with the best overall match
 
-[Click ]() to see Friend Finder App
+[Click ](https://friendfinder-live.herokuapp.com/) to see Friend Finder App
 
 ## List of technology used for app:
  
